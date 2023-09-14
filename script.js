@@ -1,36 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("burger").addEventListener("click", function() {
-        document.querySelector("header").classList.toggle("open")
-    })
-})
+let menuOpenBtn = document.querySelector('#menu-open-btn')
+let menuCloseBtn = document.querySelector('#menu-close-btn')
+let menu = document.querySelector('.side-menu')
 
+menuOpenBtn.onclick = () => { menuToggle(false, menu) }
+menuCloseBtn.onclick = () => { menuToggle(true, menu) }
 
-
-
-
-
-
-// const toogleMenu = () => {
-//     const burgerMenu = document.querySelector(".menu_icon");
-//     const src = burgerMenu.getAttribute('src');
-//     const iconName = src === 'burger_menu_logo_png' ?
-//         'close.png'
-//         :
-//         'burger_menu_logo_png'
-
-    
-
-
-//         burgerMenu.setAttribute(
-//             'src',
-//          iconName
-//         );
-
-// const menu = document.querySelector('menu');
-
-//             menu.classList.toogle(
-//                 'menu--mobile'
-//             );
-//  };
-
-//  console.log(iconName);
+function menuToggle(isActive, htmlElem){
+    if(isActive == true){
+        htmlElem.classList.remove('menu-active')
+        document.body.style.overflow = 'auto'
+    } else{
+        htmlElem.classList.add('menu-active')
+        document.body.style.overflow = 'hidden'
+    }
+}
